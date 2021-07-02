@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Test01</string>
+    <string name="counter_1">Метод 1</string>
+</resources>
