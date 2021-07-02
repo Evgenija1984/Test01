@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Test01</string>
-    <string name="counter_1">Метод 1</string>
-    <string name="text">0</string>
+    <string name="counter_1">Counter On Click</string>
+    <string name="_0">0</string>
+    <string name="counter_2">Counter Click Listener</string>
+    <string name="counter_3">Counter Listener Activity</string>
+    <string name="counter_4">Counter Listener Field</string>
 </resources>
