@@ -20,7 +20,8 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView textCounter1; // пользовательский элемент 1-го счетчика
     private Button button1;
-    int counter_1;
+    //int counter_1; перенесли в класс Counters
+    private Counters counters;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
         textView1 = findViewById(R.id.textView1);
         button1 = findViewById(R.id.button1);
     // метод 1*/
-        counter_1 = 0;
+        //counter_1 = 0; перенесли в класс Counters
+        counters = new Counters();
         textCounter1 = findViewById(R.id.textView1);
         button1 = findViewById(R.id.button1);
 
@@ -42,8 +44,10 @@ public class MainActivity extends AppCompatActivity {
         counter1++;
         textView1.setText(counter1 + "");
     // метод 1*/
-        counter_1++;
-        textCounter1.setText(String.format(Locale.getDefault(), "%d", counter_1));
+        //counter_1++; перенесли в класс Counters
+        counters.increaseCounter1();
+        //textCounter1.setText(String.format(Locale.getDefault(), "%d", counter_1));
+        textCounter1.setText(String.format(Locale.getDefault(), "%d", counters.getCounter_1()));
 
     }
 }
