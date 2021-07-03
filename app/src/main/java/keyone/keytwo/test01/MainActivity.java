@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.Locale;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textCounter1; // пользовательский элемент 1-го счетчика
     private TextView textCounter2; // пользовательский элемент 2-го счетчика
@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         textCounter4 = findViewById(R.id.textView4);
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
+
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +47,13 @@ public class MainActivity extends AppCompatActivity {
                 textCounter2.setText(String.format(Locale.getDefault(), "%d", counters.getCounter_2()));
             }
         });
+        button3.setOnClickListener(this);
+    }
 
+    @Override
+    public void onClick(View v) {
+        counters.increaseCounter3();
+        textCounter3.setText(String.format(Locale.getDefault(), "%d", counters.getCounter_3()));
 
     }
 
@@ -54,4 +62,5 @@ public class MainActivity extends AppCompatActivity {
         textCounter1.setText(String.format(Locale.getDefault(), "%d", counters.getCounter_1()));
 
     }
+
 }
