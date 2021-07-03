@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
-
+        button4 = findViewById(R.id.button4);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -48,13 +48,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         button3.setOnClickListener(this);
+        button4.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
-        counters.increaseCounter3();
-        textCounter3.setText(String.format(Locale.getDefault(), "%d", counters.getCounter_3()));
-
+        switch (v.getId()) {
+            case R.id.button3:
+                counters.increaseCounter3();
+                textCounter3.setText(String.format(Locale.getDefault(), "%d", counters.getCounter_3()));
+                break;
+            case R.id.button4:
+                counters.increaseCounter4();
+                textCounter4.setText(String.format(Locale.getDefault(), "%d", counters.getCounter_4()));
+                break;
+        }
     }
 
     public void button1_onClick(View view) {
