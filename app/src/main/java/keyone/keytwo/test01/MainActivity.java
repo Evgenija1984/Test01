@@ -16,10 +16,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private TextView textCounter2; // пользовательский элемент 2-го счетчика
     private TextView textCounter3; // пользовательский элемент 3-го счетчика
     private TextView textCounter4; // пользовательский элемент 4-го счетчика
+    private TextView textCounter5; // пользовательский элемент 5-го счетчика
+    private TextView textCounter6; // пользовательский элемент 6-го счетчика
     private Button button1;
     private Button button2;
     private Button button3;
     private Button button4;
+    private Button button5;
+    private Button button6;
+
     private Counters counters;
 
     @Override
@@ -36,10 +41,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textCounter2 = findViewById(R.id.textView2);
         textCounter3 = findViewById(R.id.textView3);
         textCounter4 = findViewById(R.id.textView4);
+        textCounter5 = findViewById(R.id.textView5);
+        textCounter6 = findViewById(R.id.textView6);
         button1 = findViewById(R.id.button1);
         button2 = findViewById(R.id.button2);
         button3 = findViewById(R.id.button3);
         button4 = findViewById(R.id.button4);
+        button5 = findViewById(R.id.button5);
+        button6 = findViewById(R.id.button6);
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,8 +58,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         button3.setOnClickListener(this);
         button4.setOnClickListener(this);
+        button5.setOnClickListener(listener);
+        button6.setOnClickListener(listener);
 
     }
+
+    View.OnClickListener listener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.button5:
+                    counters.increaseCounter5();
+                    textCounter5.setText(String.format(Locale.getDefault(), "%d", counters.getCounter_5()));
+                    break;
+                case R.id.button6:
+                    counters.increaseCounter6();
+                    textCounter6.setText(String.format(Locale.getDefault(), "%d", counters.getCounter_6()));
+                    break;
+            }
+        }
+    };
 
     @Override
     public void onClick(View v) {
